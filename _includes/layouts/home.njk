@@ -3,7 +3,7 @@ layout: layouts/base.njk
 section: home
 ---
 
-{% set postslist = collections.products %}
-{% include "components/postslist.njk" %}
-
 {{ layoutContent | safe }}
+
+{% set postslist = collections.product %}
+{% include "components/postslist.njk" %}
