@@ -10,10 +10,8 @@
 		box-sizing: border-box;
 	  -moz-box-sizing: border-box;
 	  -webkit-box-sizing: border-box;
-		border: 20px solid #f00;
-		padding: 1em;
 }
-.productList 	> article > img {
+.productList 	> article img {
 		width: 100%;
 		max-width: 800px;
 		max-width: 80vw;
@@ -72,10 +70,14 @@ body::-webkit-scrollbar,
   display: none;
 }
 .productList > article {
-	scroll-snap-align: center;
 	width: 100vh;
 	height: 100vw;
-	transform: rotate(90deg);
-	transform-origin: right top;
 	background: white;
+}
+.productList > article > div {
+	width: 100vmin;
+	height: 100vmin;
+	transform: rotate(90deg) translateX(100vw);
+	transform-origin: right top;
+	scroll-snap-align: center;
 }
