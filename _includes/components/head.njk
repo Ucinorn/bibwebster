@@ -5,7 +5,12 @@
   <title>{{ renderData.title or title or metadata.title }}</title>
   <meta name="description" content="{{ metaDescription or renderData.metaDescription or metadata.description }}">
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+	<!-- Snipcart -->
+	<link rel="preconnect" href="https://app.snipcart.com">
+	<link rel="preconnect" href="https://cdn.snipcart.com">
+	<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.27/default/snipcart.css" />
+
 	{% set css %}
     {% include "assets/css/inline.css" %}
   {% endset %}
