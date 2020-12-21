@@ -1,35 +1,31 @@
 <section class="productList">
 	{% for post in postslist %}
-		<article
-				{% if post.url == url %} data-current="current item"{% endif %}
-				data-top-bottom="margin-left: 100%; opacity:0"
-				data-top="margin-left: 30%; opacity:1"
-				data-center="margin-left: 0; opacity:1"
-				data-bottom="margin-left: -30%; opacity:1"
-				data-bottom-top="margin-left: -100%; opacity:0">
-			{% if post.data.image %}
-				<img src="{{ post.data.image }}" alt="photo of {{post.data.title}}">
-			{% endif %}
-			<div class="card">
-				<h3>
-						{% if post.data.title %}
-							{{ post.data.title }}
-						{% else %}
-							Untitled
-						{% endif %}
-				</h3>
-				{% if post.data.price %}
-					<p>${{ post.data.price }}</p>
-					<button class="snipcart-add-item"
-						data-item-id="{{post.data.sku}}"
-						data-item-price="{{ post.data.price }}"
-						data-item-url="{{post.url}}"
-						data-item-description="{{post.templateContent}}"
-						data-item-image="{{post.data.image}}"
-						data-item-name="{{post.data.title}}">
-						Buy Me
-					</button>
+		<article class="productWrapper">
+			<div class="product">
+				{% if post.data.image %}
+					<img src="{{ post.data.image }}" alt="photo of {{post.data.title}}">
 				{% endif %}
+				<div class="card">
+					<h3>
+							{% if post.data.title %}
+								{{ post.data.title }}
+							{% else %}
+								Untitled
+							{% endif %}
+					</h3>
+					{% if post.data.price %}
+						<p>${{ post.data.price }}</p>
+						<button class="snipcart-add-item"
+							data-item-id="{{post.data.sku}}"
+							data-item-price="{{ post.data.price }}"
+							data-item-url="{{post.url}}"
+							data-item-description="{{post.templateContent}}"
+							data-item-image="{{post.data.image}}"
+							data-item-name="{{post.data.title}}">
+							Buy Me
+						</button>
+					{% endif %}
+				</div>
 			</div>
 		</article>
 	{% endfor %}
