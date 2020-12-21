@@ -1,12 +1,7 @@
 <section class="productList">
+	<div class="wrapper" style="--panelcount: {{ postslist.length }};">
 	{% for post in postslist %}
-		<article
-				{% if post.url == url %} data-current="current item"{% endif %}
-				data-top-bottom="margin-left: 100%; opacity:0"
-				data-top="margin-left: 30%; opacity:1"
-				data-center="margin-left: 0; opacity:1"
-				data-bottom="margin-left: -30%; opacity:1"
-				data-bottom-top="margin-left: -100%; opacity:0">
+		<article class="product">
 			<div>
 				{% if post.data.image %}
 					<img src="{{ post.data.image }}" alt="photo of {{post.data.title}}">

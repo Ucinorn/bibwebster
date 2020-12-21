@@ -5,21 +5,16 @@
 	padding: 0;
 	margin: 0;
 }
-.productList > article {
-		width: 100%;
-		box-sizing: border-box;
-	  -moz-box-sizing: border-box;
-	  -webkit-box-sizing: border-box;
-}
-.productList 	> article img {
+
+.product img {
 		width: 100%;
 		max-width: 800px;
-		max-width: 80vw;
+		max-width: 80vmin;
 		max-height: 800px;
-		max-height: 80vh;
+		max-height: 80vmin;
 		object-fit: cover; // important for preventing stretching
 }
-.productList .card {
+.product .card {
 		position: absolute;
 		right: 6vw;
 		bottom: 7vh;
@@ -28,10 +23,10 @@
 		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 		transition: 0.3s;
 }
-.productList .card:hover {
+.product .card:hover {
 		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-.productList .card h3 {
+.product .card h3 {
 		font-weight: bold;
 }
 
@@ -45,39 +40,38 @@ main, body {
 	margin: 0;
 	padding: 0;
 }
-.productList {
-	overflow-y: auto;
-	overflow-x: auto;
-	transform: rotate(-90deg) translateY(-100vh);
-	transform-origin: right top;
-	width: 100vh;
-	height: 100vw;
-	background: gray;
-	scroll-snap-type: both proximity;
-	margin: 0;
-	padding: 0;
-}
 
-main, body,
 .productList {
-	-ms-overflow-style: none;  /* IE and Edge */
-	scrollbar-width: none;  /* Firefox */
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(-90deg) translateX(-100vh);
+  transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+.productList::-webkit-scrollbar,
+.wrapper::-webkit-scrollbar {
+  display:none;
+}
+.wrapper {
+	--panelcount: 5;
+  display: flex;
+  flex-direction: row;
+  width: 400vw;
+  width: calc( var(--panelcount, 10px) * 100vw);
+  transform: rotate(90deg) translateY(-100vh);
+  transform-origin: top left;
 
-main::-webkit-scrollbar,
-body::-webkit-scrollbar,
-.productList::-webkit-scrollbar {
-  display: none;
+	scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vw);
+  scroll-snap-type: both mandatory;
 }
-.productList > article {
-	width: 100vh;
-	height: 100vw;
-	background: white;
-}
-.productList > article > div {
-	width: 100vmin;
-	height: 100vmin;
-	transform: rotate(90deg) translateX(100vw);
-	transform-origin: right top;
+.product {
+	height: 100vh;
+	width: 100vw;
+
 	scroll-snap-align: center;
 }
