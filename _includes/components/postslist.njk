@@ -2,32 +2,33 @@
 	<div class="wrapper" style="--panelcount: {{ postslist.length }};">
 	{% for post in postslist %}
 		<article class="product">
-			<div>
 				{% if post.data.image %}
 					<img src="{{ post.data.image }}" alt="photo of {{post.data.title}}">
 				{% endif %}
-				<div class="card">
-					<h3>
-							{% if post.data.title %}
-								{{ post.data.title }}
-							{% else %}
-								Untitled
-							{% endif %}
-					</h3>
-					{% if post.data.price %}
-						<p>${{ post.data.price }}</p>
-						<button class="snipcart-add-item"
-							data-item-id="{{post.data.sku}}"
-							data-item-price="{{ post.data.price }}"
-							data-item-url="{{post.url}}"
-							data-item-description="{{post.templateContent}}"
-							data-item-image="{{post.data.image}}"
-							data-item-name="{{post.data.title}}">
-							Buy Me
-						</button>
-					{% endif %}
+				<div>
+					<div class="card">
+						<h3>
+								{% if post.data.title %}
+									{{ post.data.title }}
+								{% else %}
+									Untitled
+								{% endif %}
+						</h3>
+						{% if post.data.price %}
+							<p>${{ post.data.price }}</p>
+							<button class="snipcart-add-item"
+								data-item-id="{{post.data.sku}}"
+								data-item-price="{{ post.data.price }}"
+								data-item-url="{{post.url}}"
+								data-item-description="{{post.templateContent}}"
+								data-item-image="{{post.data.image}}"
+								data-item-name="{{post.data.title}}">
+								Buy Me
+							</button>
+						{% endif %}
+					</div>
 				</div>
-			</div>
 		</article>
 	{% endfor %}
+	<div>
 </section>
