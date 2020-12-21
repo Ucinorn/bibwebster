@@ -19,6 +19,7 @@ html, body, main {
 	scroll-snap-type: mandatory;
 	scroll-snap-points-y: repeat(100vh);
 	scroll-snap-type: y mandatory;
+	position: relative;
 }
 .productList > article {
 		width: 100%;
@@ -29,16 +30,27 @@ html, body, main {
 	  -moz-box-sizing: border-box;
 	  -webkit-box-sizing: border-box;
 		scroll-snap-align: center;
+		position: static;
 
 }
+.product .card {
+		width: 300px;
+		max-width: 300px;
+		padding: 1em;
+		text-align: right;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		margin-left: auto;
+		margin-right: auto;
+}
+
 .productList > article .product {
-	transition: transform 0.2s;
 	width: 100%;
 	height: 100%;
 	width: 100vw;
 	height: 100vh;
-	position: relative;
+	transition: transform 0.1s ease;
 }
+
 .productList 	> article img {
 		width: 100%;
 		max-width: 800px;
@@ -47,19 +59,13 @@ html, body, main {
 		max-height: 80vmin;
 		object-fit: cover; // important for preventing stretching
 }
-.product .card {
-		position: absolute;
-		right: 6vw;
-		bottom: 7vh;
-		width: 300px;
-		padding: 1em;
-		text-align: right;
-		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-		transition: 0.3s;
-}
+
+
+
 .product .card:hover {
 		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+
 .product .card h3 {
 		font-weight: bold;
 }
