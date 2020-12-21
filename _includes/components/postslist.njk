@@ -8,6 +8,9 @@
 				data-bottom="margin-left: -30%; opacity:1"
 				data-bottom-top="margin-left: -100%; opacity:0">
 			<div>
+		<article class="productWrapper">
+			<div class="product">
+
 				{% if post.data.image %}
 					<img src="{{ post.data.image }}" alt="photo of {{post.data.title}}">
 				{% endif %}
@@ -20,6 +23,7 @@
 							{% endif %}
 					</h3>
 					{% if post.data.price %}
+						<p class="info"><p>
 						<p>${{ post.data.price }}</p>
 						<button class="snipcart-add-item"
 							data-item-id="{{post.data.sku}}"

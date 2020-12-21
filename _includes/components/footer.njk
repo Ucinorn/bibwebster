@@ -1,7 +1,12 @@
 <footer>
   <small>
-		<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.0.6/dist/locomotive-scroll.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/intersection-observer-polyfill@0.1.0/index.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 		<script async src="https://cdn.snipcart.com/themes/v3.0.27/default/snipcart.js"></script>
+		{% set js %}
+			{% include "assets/js/inline.js" %}
+		{% endset %}
+		<script>{{ js | jsmin | safe }}</script>
 		<div id="snipcart" data-config-modal-style="side" data-api-key="MjY3NDhiOGMtYTBhMC00Y2VhLWIyNmQtZjM5MDJhYTg3ZjEwNjM3NDM2MjU4NDIzODEzNzQ1" hidden></div>
   </small>
 </footer>
