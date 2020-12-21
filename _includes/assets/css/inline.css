@@ -49,8 +49,12 @@ main, body {
 .productList {
   width: 100vh;
   height: 100vw;
+	-ms-transform: rotate(-90deg) translateX(-100vh);
+	-webkit-transform: rotate(-90deg) translateX(-100vh);
   transform: rotate(-90deg) translateX(-100vh);
-  transform-origin: top left;
+	-ms-transform-origin: top left;
+	-webkit-transform-origin: top left;
+	transform-origin: top left;
   overflow-y: scroll;
   overflow-x: hidden;
   position: absolute;
@@ -67,7 +71,11 @@ main, body {
   flex-direction: row;
   width: 400vw;
   width: calc( var(--panelcount, 10px) * 100vw);
+	-ms-transform: rotate(90deg) translateX(-100vh);
+	-webkit-transform: rotate(90deg) translateX(-100vh);
   transform: rotate(90deg) translateY(-100vh);
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
   transform-origin: top left;
 
 	scroll-snap-type: mandatory;
