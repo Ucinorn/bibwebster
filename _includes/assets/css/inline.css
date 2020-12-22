@@ -1,4 +1,11 @@
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 .productList {
 	width: 100%;
 	min-height: 100vh;
@@ -8,6 +15,7 @@
 .product {
 	display: flex;
 	flex-wrap: wrap;
+	border: 4px solid black;
 }
 .product img {
 		width: 100%;
@@ -36,6 +44,14 @@
 }
 
 /* scroll logic */
+/*
+How this works:
+
+on touch-enabled devices, we just arrange all the slides horzontally with X overflow on
+so peopl can slide themselves left and right
+
+ON larger screens we use the double translate hack to force any vertical scrolls to be horizontal.
+*/
 
 main, body {
 	max-width: 100%;
@@ -46,45 +62,59 @@ main, body {
 	padding: 0;
 }
 
+.product {
+	height: 100vh;
+	width: 100vw;
+	scroll-snap-align: center;
+}
+
+
 .productList {
-  width: 100vh;
-  height: 100vw;
-	-ms-transform: rotate(-90deg) translateX(-100vh);
-	-webkit-transform: rotate(-90deg) translateX(-100vh);
-  transform: rotate(-90deg) translateX(-100vh);
-	-ms-transform-origin: top left;
-	-webkit-transform-origin: top left;
-	transform-origin: top left;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-.productList::-webkit-scrollbar,
-.wrapper::-webkit-scrollbar {
+
+::-webkit-scrollbar,
+::-webkit-scrollbar {
   display:none;
 }
+
 .wrapper {
 	--panelcount: 5;
   display: flex;
   flex-direction: row;
   width: 400vw;
-  width: calc( var(--panelcount, 10px) * 100vw);
-	-ms-transform: rotate(90deg) translateX(-100vh);
-	-webkit-transform: rotate(90deg) translateX(-100vh);
-  transform: rotate(90deg) translateY(-100vh);
-  -ms-transform-origin: top left;
-  -webkit-transform-origin: top left;
-  transform-origin: top left;
+	overflow-x: scroll;
+	overflow-y: hidden;
 
 	scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(100vw);
   scroll-snap-type: both mandatory;
 }
-.product {
-	height: 100vh;
-	width: 100vw;
 
-	scroll-snap-align: center;
+/* mouse, touch pad */
+/*
+@media (hover: hover) and (pointer: fine) {
+	.productList {
+	  transform: rotate(-90deg) translateX(-100vh);
+		-ms-transform: rotate(-90deg) translateX(-100vh);
+		-webkit-transform: rotate(-90deg) translateX(-100vh);
+		transform-origin: top left;
+		-ms-transform-origin: top left;
+		-webkit-transform-origin: top left;
+	}
+	.wrapper {
+		transform: rotate(90deg) translateY(-100vh);
+		-ms-transform: rotate(90deg) translateX(-100vh);
+		-webkit-transform: rotate(90deg) translateX(-100vh);
+		transform-origin: top left;
+		-ms-transform-origin: top left;
+		-webkit-transform-origin: top left;
+	}
 }
+*/

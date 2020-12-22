@@ -1,10 +1,11 @@
 <head>
   <meta charset="utf-8">
   <link rel="dns-prefetch" href="https://identity.netlify.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <title>{{ renderData.title or title or metadata.title }}</title>
   <meta name="description" content="{{ metaDescription or renderData.metaDescription or metadata.description }}">
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 
 	<!-- Snipcart -->
 	<link rel="preconnect" href="https://app.snipcart.com">
@@ -13,11 +14,11 @@
 
 	{% set css %}
     {% include "assets/css/inline.css" %}
-    {% include "assets/css/locomotive.css" %}
   {% endset %}
   <style>{{ css | cssmin | safe }}</style>
   {% set js %}
     {% include "assets/js/inline.js" %}
+    {% include "assets/js/horizontal.js" %}
   {% endset %}
   <script>{{ js | jsmin | safe }}</script>
 </head>
